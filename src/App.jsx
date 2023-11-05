@@ -76,14 +76,10 @@ export default function App() {
       <div className="output">
         <input type="text" placeholder="P4$5WOrD!" value={password} readOnly />
         <CopyToClipboard text={password} onCopy={handleCopyToCLip}>
-          {isCopied ? (
-            <FontAwesomeIcon
-              icon={faClipboardCheck}
-              className="copyToClipboard"
-            />
-          ) : (
-            <FontAwesomeIcon icon={faClipboard} className="copyToClipboard" />
-          )}
+          <FontAwesomeIcon
+            icon={isCopied ? faClipboardCheck : faClipboard}
+            className="copyToClipboard"
+          />
         </CopyToClipboard>
       </div>
       <div className="input">
