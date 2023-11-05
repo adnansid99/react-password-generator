@@ -1,7 +1,7 @@
 {
   "name": "react-password-generator",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "generate-password": "^1.7.1",
     "generate-password-browser": "^1.1.0",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",

@@ -9,7 +9,7 @@ import { generate } from "generate-password-browser";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function App() {
-  const [passLength, setPassLength] = useState(8);
+  const [passLength, setPassLength] = useState(16);
   const [checkbox, setCheckbox] = useState(0);
   const [passState, setPassState] = useState({
     length: passLength,
@@ -64,7 +64,6 @@ export default function App() {
     } catch (e) {
       alert("Atleast select one checkbox :((");
     }
-    // console.log(passwordXD);
   }
 
   function handleCopyToCLip() {
@@ -97,7 +96,8 @@ export default function App() {
             name="char-length"
             id="char-length"
             min="8"
-            max="64"
+            max="24"
+            value={passLength}
             onChange={handleLengthChange}
           />
         </div>
