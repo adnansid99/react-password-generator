@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy } from "@fortawesome/free-regular-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faClipboard } from "@fortawesome/free-regular-svg-icons";
+import {
+  faArrowRight,
+  faClipboardCheck,
+} from "@fortawesome/free-solid-svg-icons";
 import { generate } from "generate-password-browser";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
@@ -16,10 +19,7 @@ export default function App() {
     uppercase: false,
   });
   const [password, setPassword] = useState("");
-  const [isCopied, setIsCopied] = useState({
-    value: password,
-    copied: false,
-  });
+  const [isCopied, setIsCopied] = useState(false);
 
   function getStrength() {
     if (checkbox == 1) {
@@ -42,12 +42,6 @@ export default function App() {
     borderColor: sthColor,
   };
 
-  function handleCopy() {
-    setTimeout(() => {
-      setIsCopied({ copied: true, value: password });
-    }, 1000);
-  }
-
   function handleLengthChange(event) {
     const { value } = event.target;
     setPassLength(value);
@@ -69,16 +63,28 @@ export default function App() {
     return setPassword(passwordXD);
   }
 
+  function handleCopyToCLip() {
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+    setIsCopied(true);
+  }
+
   return (
     <>
       <p className="header">Password Generator</p>
       <div className="output">
         <input type="text" placeholder="P4$5WOrD!" value={password} readOnly />
-        <FontAwesomeIcon
-          icon={faCopy}
-          className="copyToClipboard"
-          onClick={handleCopy}
-        />
+        <CopyToClipboard text={password} onCopy={handleCopyToCLip}>
+          {isCopied ? (
+            <FontAwesomeIcon
+              icon={faClipboardCheck}
+              className="copyToClipboard"
+            />
+          ) : (
+            <FontAwesomeIcon icon={faClipboard} className="copyToClipboard" />
+          )}
+        </CopyToClipboard>
       </div>
       <div className="input">
         <div className="charLength">
