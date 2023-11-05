@@ -58,9 +58,13 @@ export default function App() {
   }
 
   function handleGenerate() {
-    const passwordXD = generate(passState);
+    try {
+      const passwordXD = generate(passState);
+      setPassword(passwordXD);
+    } catch (e) {
+      alert("Atleast select one checkbox :((");
+    }
     // console.log(passwordXD);
-    return setPassword(passwordXD);
   }
 
   function handleCopyToCLip() {
@@ -157,6 +161,7 @@ export default function App() {
           GENERATE <FontAwesomeIcon icon={faArrowRight} />
         </button>
       </div>
+      <footer>Made By Adnan Siddiqui</footer>
     </>
   );
 }

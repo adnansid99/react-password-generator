@@ -222,6 +222,11 @@ body {
   }
 }
 
+footer {
+  font-size: 11px;
+  color: #6f6f6f;
+}
+
 @media (max-width: 460px) {
   * {
     font-size: 95%;
